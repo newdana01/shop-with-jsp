@@ -14,7 +14,7 @@
 <table width="1000">
     <tr>
         <td align="center">
-            <img src="img/main.png" width="1000">
+            <img src="img/main.png" alt="메인 이미지" width="1000">
         </td>
     </tr>
 </table>

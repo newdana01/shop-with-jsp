@@ -22,7 +22,7 @@
 <table width="1000" align="center">
     <tr height="80">
         <td colspan="4">
-            <img src="img/logo.png" height="65">
+            <img src="img/logo.png" alt="로고 이미지" height="65">
         </td>
         <td align="center" width="200">
             <%=id%> 님 반갑습니다.
@@ -30,7 +30,7 @@
     </tr>
     <tr height="50">
         <td align="center" width="200" bgcolor="red">
-            <a href="carReservationMain.jsp" style="text-decoration: none; color: azure;">예 약 하 기</a>
+            <a href="index.jsp?center=carReservationMain.jsp" style="text-decoration: none; color: azure;">예 약 하 기</a>
         </td>
         <td align="center" width="200" bgcolor="red">
             <a href="#" style="text-decoration: none; color: azure">예 약 확 인</a></span>

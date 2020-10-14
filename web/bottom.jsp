@@ -14,13 +14,15 @@
     <tr height="80">
         <td align="center">
             <hr color="red" size="3">
+            <span style="font-size: small; color: gray">
             (주)해피렌트카 |
             사업자등록번호 111-111-11111 |
             대표이사 주다희 |
             주소 서울시 |
             팩스 02) 0111-0000 |
-            이메일 newdana01@gmail.com
+            이메일 newdana01@gmail.com <br>
             COPYRIGHTⓒ2020 HAPPY-RENTCAR, All rights reserved.
+            </span>
         </td>
     </tr>
 </table>

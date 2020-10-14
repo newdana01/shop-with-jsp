@@ -12,4 +12,5 @@
         maxwait="10000"
         maxactive="50"
         maxidle="50"
+    />
 </Context>
