@@ -113,4 +113,74 @@ public class RentCarDAO {
         }
         return rentCarDTOS;
     }
+
+    public ArrayList<RentCarDTO> getAllCar() {
+        ArrayList<RentCarDTO> rentCarDTOS = new ArrayList<>();
+
+        getCon();
+        try{
+            String sql="SELECT * FROM rentcar";
+            pstmt = con.prepareStatement(sql);
+            res = pstmt.executeQuery();
+
+            while(res.next()){
+                RentCarDTO rentCarDTO = new RentCarDTO();
+                rentCarDTO.setCno(res.getInt(1));
+                rentCarDTO.setCname(res.getString(2));
+                rentCarDTO.setCategory(res.getInt(3));
+                rentCarDTO.setPrice(res.getInt(4));
+                rentCarDTO.setUsepeople(res.getInt(5));
+                rentCarDTO.setCompany(res.getString(6));
+                rentCarDTO.setImg(res.getString(7));
+                rentCarDTO.setInfo(res.getString(8));
+
+                rentCarDTOS.add(rentCarDTO);
+            }
+        }catch (Exception e1){
+            e1.printStackTrace();
+        }finally {
+            try {
+                if(res!=null) res.close();
+                if(pstmt!=null) pstmt.close();
+                if(con!=null) con.close();
+            }catch (Exception e2){
+                e2.printStackTrace();
+            }
+        }
+        return rentCarDTOS;
+    }
+
+    public RentCarDTO getCarInfo(int cno) {
+        RentCarDTO rentCarDTO = new RentCarDTO();
+
+        getCon();
+        try{
+            String sql = "SELECT * FROM rentcar WHERE cno=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1,cno);
+            res = pstmt.executeQuery();
+
+            if(res.next()){
+                rentCarDTO.setCno(res.getInt(1));
+                rentCarDTO.setCname(res.getString(2));
+                rentCarDTO.setCategory(res.getInt(3));
+                rentCarDTO.setPrice(res.getInt(4));
+                rentCarDTO.setUsepeople(res.getInt(5));
+                rentCarDTO.setCompany(res.getString(6));
+                rentCarDTO.setImg(res.getString(7));
+                rentCarDTO.setInfo(res.getString(8));
+            }
+        }catch (Exception e1){
+            e1.printStackTrace();
+        }finally {
+            try {
+                if(res!=null) res.close();
+                if(pstmt!=null) pstmt.close();
+                if(con!=null) con.close();
+            }catch (Exception e2){
+                e2.printStackTrace();
+            }
+        }
+        return rentCarDTO;
+    }
 }

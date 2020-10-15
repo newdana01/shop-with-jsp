@@ -22,27 +22,34 @@
 <table width="1000" align="center">
     <tr height="80">
         <td colspan="4">
-            <img src="img/logo.png" alt="로고 이미지" height="65">
+            <a href="carMain.jsp"><img src="img/logo.png" alt="로고 이미지" height="65"></a>
         </td>
         <td align="center" width="200">
-            <%=id%> 님 반갑습니다.
+            <%=id%> 님
+            <%
+                if(id.equals("GUEST")){
+            %>
+            <button onclick="location.href='carMain.jsp?center=carLogin.jsp'">로그인</button>
+            <%
+                }
+            %>
         </td>
     </tr>
     <tr height="50">
         <td align="center" width="200" bgcolor="red">
-            <a href="index.jsp?center=carReservationMain.jsp" style="text-decoration: none; color: azure;">예 약 하 기</a>
+            <a href="carMain.jsp?center=carReservationMain.jsp" style="text-decoration: none; color: azure;">예 약 하 기</a>
         </td>
         <td align="center" width="200" bgcolor="red">
-            <a href="#" style="text-decoration: none; color: azure">예 약 확 인</a></span>
+            <a href="#" style="text-decoration: none; color: azure">예 약 확 인</a>
         </td>
         <td align="center" width="200" bgcolor="red">
-            <a href="#" style="text-decoration: none; color: azure">자유게시판</a></span>
+            <a href="#" style="text-decoration: none; color: azure">자유게시판</a>
         </td>
         <td align="center" width="200" bgcolor="red">
-            <a href="#" style="text-decoration: none; color: azure">이  벤  트</a></span>
+            <a href="#" style="text-decoration: none; color: azure">이  벤  트</a>
         </td>
         <td align="center" width="200" bgcolor="red">
-            <a href="#" style="text-decoration: none; color: azure">고 객 센 터</a></span>
+            <a href="#" style="text-decoration: none; color: azure">고 객 센 터</a>
         </td>
     </tr>
 </table>

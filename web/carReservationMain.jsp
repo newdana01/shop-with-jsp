@@ -20,13 +20,18 @@
 %>
 
 <table width="1000" align="center">
+    <tr height="60">
+        <td colspan="3">
+            <span style="font-size: larger; color: red; font-weight: bold">■ 최신 렌트카</span>
+        </td>
+    </tr>
     <tr height="240">
         <%
             for(int i=0; i<rentCarDTOS.size(); i++){
                 RentCarDTO rentCarDTO = rentCarDTOS.get(i);
         %>
         <td align="center">
-            <a href="carReservationInfo.jsp?cbo=<%=rentCarDTO.getCno()%>"><img src="img/<%=rentCarDTO.getImg()%>" alt="" width="300" height="220"></a><br>
+            <a href="carMain.jsp?center=carReservationInfo.jsp?cno=<%=rentCarDTO.getCno()%>"><img src="img/<%=rentCarDTO.getImg()%>" alt="" width="300" height="220"></a><br>
             <%=rentCarDTO.getCname()%>
         </td>
         <%
@@ -36,14 +41,14 @@
 </table>
 
 <br>
-<form action="index.jsp?center=carCategoryList.jsp" method="post" align="center">
+<form action="carMain.jsp?center=carCategoryList.jsp" method="post" align="center">
     <select name="category">
         <option value="1">소형</option>
         <option value="2">중형</option>
         <option value="3">대형</option>
     </select>&nbsp;&nbsp;
     <input type="submit" value="검색">
-    <input type="button" onclick="location.href='carAllList.jsp'" value="전체 검색">
+    <input type="button" onclick="location.href='carMain.jsp?center=carAllList.jsp'" value="전체 검색">
 </form>
 </body>
 </html>
