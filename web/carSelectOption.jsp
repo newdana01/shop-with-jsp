@@ -28,7 +28,7 @@
             </td>
             <td width="250" align="center">대여기간</td>
             <td width="250" align="center">
-                <select name="rentTerm">
+                <select name="rent_term">
                     <option value="1">1일</option>
                     <option value="2">2일</option>
                     <option value="3">3일</option>
@@ -42,7 +42,7 @@
         <tr>
             <td width="250" align="center">대여 날짜</td>
             <td width="250" align="center">
-                <input type="date" name="rentDate">
+                <input type="date" name="rent_date">
             </td>
         </tr>
         <tr>

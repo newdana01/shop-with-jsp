@@ -1,14 +1,24 @@
 package db;
 
 public class RentCarReservationDTO {
+    private int rno;
     private int cno;
+    private String id;
     private int qty;
-    private int rentTerm;
-    private String rentDate;
+    private int rent_term; //대여 기간
+    private String rent_date; //대여 날짜
     private int ins;
     private int wifi;
     private int nav;
     private int seat;
+
+    public int getRno() {
+        return rno;
+    }
+
+    public void setRno(int rno) {
+        this.rno = rno;
+    }
 
     public int getCno() {
         return cno;
@@ -16,6 +26,14 @@ public class RentCarReservationDTO {
 
     public void setCno(int cno) {
         this.cno = cno;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getQty() {
@@ -26,20 +44,20 @@ public class RentCarReservationDTO {
         this.qty = qty;
     }
 
-    public int getRentTerm() {
-        return rentTerm;
+    public int getRent_term() {
+        return rent_term;
     }
 
-    public void setRentTerm(int rentTerm) {
-        this.rentTerm = rentTerm;
+    public void setRent_term(int rent_term) {
+        this.rent_term = rent_term;
     }
 
-    public String getRentDate() {
-        return rentDate;
+    public String getRent_date() {
+        return rent_date;
     }
 
-    public void setRentDate(String rentDate) {
-        this.rentDate = rentDate;
+    public void setRent_date(String rent_date) {
+        this.rent_date = rent_date;
     }
 
     public int getIns() {

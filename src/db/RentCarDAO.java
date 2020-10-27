@@ -183,4 +183,61 @@ public class RentCarDAO {
         }
         return rentCarDTO;
     }
+
+    public int isExist(String id, String pw) {
+        int result=0; //0이면 회원 없음
+
+        getCon();
+        try{
+            String sql="SELECT count(*) FROM car_member WHERE id=? AND pass =?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, id);
+            pstmt.setString(2, pw);
+            res = pstmt.executeQuery();
+
+            if(res.next()){
+                result = res.getInt(1); //0 또는 1 값 저장됨
+            }
+        }catch (Exception e1){
+            e1.printStackTrace();
+        }finally {
+            try {
+                if(res!=null) res.close();
+                if(pstmt!=null) pstmt.close();
+                if(con!=null) con.close();
+            }catch (Exception e2){
+                e2.printStackTrace();
+            }
+        }
+        return result;
+    }
+
+    public void insertReservation(RentCarReservationDTO rDTO) { //예약정보를 저장하는 메서드
+        getCon();
+        try{
+            String sql="INSERT INTO car_reservation VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, rDTO.getCno());
+            pstmt.setString(2, rDTO.getId());
+            pstmt.setInt(3, rDTO.getQty());
+            pstmt.setInt(4, rDTO.getRent_term());
+            pstmt.setString(5, rDTO.getRent_date());
+            pstmt.setInt(6, rDTO.getIns());
+            pstmt.setInt(7, rDTO.getWifi());
+            pstmt.setInt(8, rDTO.getNav());
+            pstmt.setInt(9, rDTO.getSeat());
+
+            pstmt.executeUpdate();
+        }catch (Exception e1){
+            e1.printStackTrace();
+        }finally {
+            try {
+                if(res!=null) res.close();
+                if(pstmt!=null) pstmt.close();
+                if(con!=null) con.close();
+            }catch (Exception e2){
+                e2.printStackTrace();
+            }
+        }
+    }
 }

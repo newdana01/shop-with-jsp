@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>메인 페이지</title>
+    <title>해피카렌트</title>
   </head>
   <body>
   <%
