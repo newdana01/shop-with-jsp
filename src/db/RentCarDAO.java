@@ -6,7 +6,6 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class RentCarDAO {
@@ -212,7 +211,7 @@ public class RentCarDAO {
         return result;
     }
 
-    public void insertReservation(RentCarReservationDTO rDTO) { //예약정보를 저장하는 메서드
+    public void insertReservation(ReservationDTO rDTO) { //예약정보를 저장하는 메서드
         getCon();
         try{
             String sql="INSERT INTO car_reservation VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -239,5 +238,47 @@ public class RentCarDAO {
                 e2.printStackTrace();
             }
         }
+    }
+
+    public ArrayList<LookupDTO> getAllReservation(String id) {
+        ArrayList<LookupDTO> cDTO = new ArrayList<>();
+        LookupDTO bean = null;
+
+        getCon();
+        try{
+            String sql = "SELECT cname, price, img, qty, rent_term, rent_date, ins, wifi, nav, seat "
+                    + "FROM rentcar NATURAL JOIN car_reservation WHERE NOW() < DATE_FORMAT(rent_date, '%Y%m%d') "
+                    + "AND id = ?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, id);
+            res = pstmt.executeQuery();
+
+            while (res.next()){
+                bean = new LookupDTO();
+                bean.setCname(res.getString(1));
+                bean.setPrice(res.getInt(2));
+                bean.setImg(res.getString(3));
+                bean.setQty(res.getInt(4));
+                bean.setRent_term(res.getInt(5));
+                bean.setRent_date(res.getString(6));
+                bean.setIns(res.getInt(7));
+                bean.setWifi(res.getInt(8));
+                bean.setNav(res.getInt(9));
+                bean.setSeat(res.getInt(10));
+                cDTO.add(bean);
+            }
+        }catch (Exception e1){
+            e1.printStackTrace();
+        }finally {
+            try {
+                if(res!=null) res.close();
+                if(pstmt!=null) pstmt.close();
+                if(con!=null) con.close();
+            }catch (Exception e2){
+                e2.printStackTrace();
+            }
+        }
+
+        return cDTO;
     }
 }

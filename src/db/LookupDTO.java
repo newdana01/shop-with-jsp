@@ -1,39 +1,39 @@
 package db;
 
-public class RentCarReservationDTO {
-    private int rno;
-    private int cno;
-    private String id;
+public class LookupDTO {
+    private String cname;
+    private int price;
+    private String img;
     private int qty;
-    private int rent_term; //대여 기간
-    private String rent_date; //대여 날짜
+    private int rent_term;
+    private String rent_date;
     private int ins;
     private int wifi;
     private int nav;
     private int seat;
 
-    public int getRno() {
-        return rno;
+    public String getCname() {
+        return cname;
     }
 
-    public void setRno(int rno) {
-        this.rno = rno;
+    public void setCname(String cname) {
+        this.cname = cname;
     }
 
-    public int getCno() {
-        return cno;
+    public int getPrice() {
+        return price;
     }
 
-    public void setCno(int cno) {
-        this.cno = cno;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public String getId() {
-        return id;
+    public String getImg() {
+        return img;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public int getQty() {

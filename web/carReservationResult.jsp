@@ -18,7 +18,7 @@
 <%
     request.setCharacterEncoding("UTF-8");
 %>
-<jsp:useBean id="rDTO" class="db.RentCarReservationDTO">
+<jsp:useBean id="rDTO" class="db.ReservationDTO">
     <jsp:setProperty name="rDTO" property="*"/>
 </jsp:useBean>
 
@@ -91,7 +91,7 @@
         <td align="center">
             <span style="color: gray">
                 대여 금액 <%=totalCost%> 원 <br>
-                         <%=rentCarDTO.getPrice()%> (원) * <%=rDTO.getQty()%>(대) * <%=rDTO.getRent_term()%> (대여일)
+                         <%=rentCarDTO.getPrice()%> (원) * <%=rDTO.getQty()%>(대) * <%=rDTO.getRent_term()%> (대여일) <br>
                 옵션 금액 <%=optionCost%> 원 <br>
                 총 금액 <%=totalCost + optionCost%> 원
             </span>
