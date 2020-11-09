@@ -66,13 +66,13 @@
     int totalCost = rentCarDTO.getPrice() * rDTO.getQty() * rDTO.getRent_term();
     //옵션금액
     int insCost = 0;
-    if(insCost == 1) insCost = 10000;
+    if(rDTO.getIns() == 1) insCost = 10000;
     //와이파이
     int wifiCost = 0;
-    if(wifiCost == 1) wifiCost = 10000;
+    if(rDTO.getWifi() == 1) wifiCost = 10000;
     //베이비시트
     int seatCost = 0;
-    if(seatCost == 1) seatCost = 10000;
+    if(rDTO.getSeat() == 1) seatCost = 10000;
     int optionCost = rDTO.getQty() * rDTO.getRent_term() * (insCost + wifiCost + seatCost);
 %>
 

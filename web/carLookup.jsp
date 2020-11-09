@@ -56,12 +56,36 @@
         <td width="150" align="center"><%=bean.getCname()%></td>
         <td width="150" align="center"><%=bean.getRent_date()%></td>
         <td width="60" align="center"><%=bean.getRent_term()%></td>
-        <td width="100" align="center"><%=bean.getPrice()%></td> //전제 금액 수정 ***
+        <td width="100" align="center"><%=bean.getPrice()%></td> <!--전체 금액 수정 ***-->
         <td width="60" align="center"><%=bean.getQty()%></td>
-        <td width="60" align="center">보험</td>
-        <td width="60" align="center">WIFI</td>
-        <td width="60" align="center">네비게이션</td>
-        <td width="60" align="center">베이비시트</td>
+        <td width="60" align="center">
+            <% if(bean.getIns()==1) {%>
+            적용
+            <% }else{ %>
+            비적용
+            <%}%>
+        </td>
+        <td width="60" align="center">
+            <% if(bean.getWifi()==1) {%>
+            적용
+            <% }else{ %>
+            비적용
+            <%}%>
+        </td>
+        <td width="60" align="center">
+            <% if(bean.getNav()==1) {%>
+            적용
+            <% }else{ %>
+            비적용
+            <%}%>
+        </td>
+        <td width="60" align="center">
+            <% if(bean.getSeat()==1) {%>
+            적용
+            <% }else{ %>
+            비적용
+            <%}%>
+        </td>
         <td width="90" align="center">
             <button onclick="location.href='carReservationDel.jsp?id=<%=id%>&rdate=<%=bean.getRent_date()%>'">삭제</button>
         </td>

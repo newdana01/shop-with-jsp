@@ -281,4 +281,25 @@ public class RentCarDAO {
 
         return cDTO;
     }
+
+    public void delReservation(String id, String rdate) {
+        getCon();
+
+        try{
+            String sql = "DELETE FROM car_reservation WHERE id=? AND rent_date=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, id);
+            pstmt.setString(2, rdate);
+            pstmt.executeUpdate();
+        }catch (Exception e1){
+            e1.printStackTrace();
+        }finally {
+            try{
+                if(pstmt!=null) pstmt.close();
+                if(con!=null) con.close();
+            }catch (Exception e2){
+                e2.printStackTrace();
+            }
+        }
+    }
 }

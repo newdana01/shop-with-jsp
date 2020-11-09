@@ -44,7 +44,7 @@
             <a href="carMain.jsp?center=carReservationMain.jsp" style="text-decoration: none; color: azure;">예 약 하 기</a>
         </td>
         <td align="center" width="200" bgcolor="red">
-            <a href="carMain.jsp?center=carConfirmation.jsp" style="text-decoration: none; color: azure">예 약 확 인</a>
+            <a href="carMain.jsp?center=carLookup.jsp" style="text-decoration: none; color: azure">예 약 확 인</a>
         </td>
         <td align="center" width="200" bgcolor="red">
             <a href="#" style="text-decoration: none; color: azure">자유게시판</a>
