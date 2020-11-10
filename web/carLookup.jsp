@@ -56,7 +56,7 @@
         <td width="150" align="center"><%=bean.getCname()%></td>
         <td width="150" align="center"><%=bean.getRent_date()%></td>
         <td width="60" align="center"><%=bean.getRent_term()%></td>
-        <td width="100" align="center"><%=bean.getPrice()%></td> <!--전체 금액 수정 ***-->
+        <td width="100" align="center"><%=bean.getTotal_cost()%></td>
         <td width="60" align="center"><%=bean.getQty()%></td>
         <td width="60" align="center">
             <% if(bean.getIns()==1) {%>
@@ -87,7 +87,7 @@
             <%}%>
         </td>
         <td width="90" align="center">
-            <button onclick="location.href='carReservationDel.jsp?id=<%=id%>&rdate=<%=bean.getRent_date()%>'">삭제</button>
+            <button onclick="location.href='carReservationDel.jsp?rno=<%=bean.getRno()%>'">예약취소</button>
         </td>
     </tr>
     <%

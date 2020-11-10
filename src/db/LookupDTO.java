@@ -1,8 +1,9 @@
 package db;
 
 public class LookupDTO {
+    private int rno;
     private String cname;
-    private int price;
+    private int total_cost;
     private String img;
     private int qty;
     private int rent_term;
@@ -12,6 +13,14 @@ public class LookupDTO {
     private int nav;
     private int seat;
 
+    public int getRno() {
+        return rno;
+    }
+
+    public void setRno(int rno) {
+        this.rno = rno;
+    }
+
     public String getCname() {
         return cname;
     }
@@ -20,12 +29,12 @@ public class LookupDTO {
         this.cname = cname;
     }
 
-    public int getPrice() {
-        return price;
+    public int getTotal_cost() {
+        return total_cost;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setTotal_cost(int total_cost) {
+        this.total_cost = total_cost;
     }
 
     public String getImg() {

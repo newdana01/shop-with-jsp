@@ -58,13 +58,7 @@
     rDTO.setId(id1);
 
     RentCarDAO rentCarDAO = new RentCarDAO();
-    rentCarDAO.insertReservation(rDTO); //예약 정보 저장
 
-    //차량 정보 얻어오기
-    RentCarDTO rentCarDTO = rentCarDAO.getCarInfo(rDTO.getCno());
-    //총 예약금액 계산
-    int totalCost = rentCarDTO.getPrice() * rDTO.getQty() * rDTO.getRent_term();
-    //옵션금액
     int insCost = 0;
     if(rDTO.getIns() == 1) insCost = 10000;
     //와이파이
@@ -73,7 +67,17 @@
     //베이비시트
     int seatCost = 0;
     if(rDTO.getSeat() == 1) seatCost = 10000;
+
+    //차량 정보 얻어오기
+    RentCarDTO rentCarDTO = rentCarDAO.getCarInfo(rDTO.getCno());
+    //총 예약금액 계산
+    int reserveCost = rentCarDTO.getPrice() * rDTO.getQty() * rDTO.getRent_term();
+
     int optionCost = rDTO.getQty() * rDTO.getRent_term() * (insCost + wifiCost + seatCost);
+
+    int totalCost = reserveCost + optionCost;
+
+    rentCarDAO.insertReservation(rDTO, totalCost); //예약 정보 저장
 %>
 
 <table align="center" width="1000">
@@ -90,11 +94,16 @@
     <tr height="50">
         <td align="center">
             <span style="color: gray">
-                대여 금액 <%=totalCost%> 원 <br>
+                대여 금액 <%=reserveCost%> 원 <br>
                          <%=rentCarDTO.getPrice()%> (원) * <%=rDTO.getQty()%>(대) * <%=rDTO.getRent_term()%> (대여일) <br>
                 옵션 금액 <%=optionCost%> 원 <br>
-                총 금액 <%=totalCost + optionCost%> 원
+                총 금액 <%=totalCost%> 원
             </span>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <input type="button" onclick="location.href='carMain.jsp?center=carLookup.jsp'" value="예약확인">
         </td>
     </tr>
 </table>

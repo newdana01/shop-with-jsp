@@ -11,12 +11,12 @@
 </head>
 <body>
 <%
-    String id = request.getParameter("id");
-    String rdate = request.getParameter("rdate");
-
+    int rno = Integer.parseInt(request.getParameter("rno"));
     RentCarDAO rentCarDAO = new RentCarDAO();
-    rentCarDAO.delReservation(id, rdate);
-    response.sendRedirect("carMain.jsp");
+    rentCarDAO.delReservation(rno);
+
+    String carLookup = "carLookup.jsp";
+    response.sendRedirect("carMain.jsp?center="+carLookup);
 %>
 </body>
 </html>

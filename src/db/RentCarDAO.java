@@ -211,20 +211,21 @@ public class RentCarDAO {
         return result;
     }
 
-    public void insertReservation(ReservationDTO rDTO) { //예약정보를 저장하는 메서드
+    public void insertReservation(ReservationDTO rDTO, int totalCost) { //예약정보를 저장하는 메서드
         getCon();
         try{
-            String sql="INSERT INTO car_reservation VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql="INSERT INTO car_reservation VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, rDTO.getCno());
             pstmt.setString(2, rDTO.getId());
-            pstmt.setInt(3, rDTO.getQty());
-            pstmt.setInt(4, rDTO.getRent_term());
-            pstmt.setString(5, rDTO.getRent_date());
-            pstmt.setInt(6, rDTO.getIns());
-            pstmt.setInt(7, rDTO.getWifi());
-            pstmt.setInt(8, rDTO.getNav());
-            pstmt.setInt(9, rDTO.getSeat());
+            pstmt.setInt(3, totalCost);
+            pstmt.setInt(4, rDTO.getQty());
+            pstmt.setInt(5, rDTO.getRent_term());
+            pstmt.setString(6, rDTO.getRent_date());
+            pstmt.setInt(7, rDTO.getIns());
+            pstmt.setInt(8, rDTO.getWifi());
+            pstmt.setInt(9, rDTO.getNav());
+            pstmt.setInt(10, rDTO.getSeat());
 
             pstmt.executeUpdate();
         }catch (Exception e1){
@@ -246,7 +247,7 @@ public class RentCarDAO {
 
         getCon();
         try{
-            String sql = "SELECT cname, price, img, qty, rent_term, rent_date, ins, wifi, nav, seat "
+            String sql = "SELECT rno, cname, total_cost, img, qty, rent_term, rent_date, ins, wifi, nav, seat "
                     + "FROM rentcar NATURAL JOIN car_reservation WHERE NOW() < DATE_FORMAT(rent_date, '%Y%m%d') "
                     + "AND id = ?";
             pstmt = con.prepareStatement(sql);
@@ -255,16 +256,17 @@ public class RentCarDAO {
 
             while (res.next()){
                 bean = new LookupDTO();
-                bean.setCname(res.getString(1));
-                bean.setPrice(res.getInt(2));
-                bean.setImg(res.getString(3));
-                bean.setQty(res.getInt(4));
-                bean.setRent_term(res.getInt(5));
-                bean.setRent_date(res.getString(6));
-                bean.setIns(res.getInt(7));
-                bean.setWifi(res.getInt(8));
-                bean.setNav(res.getInt(9));
-                bean.setSeat(res.getInt(10));
+                bean.setRno(res.getInt(1));
+                bean.setCname(res.getString(2));
+                bean.setTotal_cost(res.getInt(3));
+                bean.setImg(res.getString(4));
+                bean.setQty(res.getInt(5));
+                bean.setRent_term(res.getInt(6));
+                bean.setRent_date(res.getString(7));
+                bean.setIns(res.getInt(8));
+                bean.setWifi(res.getInt(9));
+                bean.setNav(res.getInt(10));
+                bean.setSeat(res.getInt(11));
                 cDTO.add(bean);
             }
         }catch (Exception e1){
@@ -282,14 +284,13 @@ public class RentCarDAO {
         return cDTO;
     }
 
-    public void delReservation(String id, String rdate) {
+    public void delReservation(int rno) {
         getCon();
 
         try{
-            String sql = "DELETE FROM car_reservation WHERE id=? AND rent_date=?";
+            String sql = "DELETE FROM car_reservation WHERE rno = ?";
             pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, id);
-            pstmt.setString(2, rdate);
+            pstmt.setInt(1, rno);
             pstmt.executeUpdate();
         }catch (Exception e1){
             e1.printStackTrace();
