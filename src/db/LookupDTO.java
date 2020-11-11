@@ -5,9 +5,8 @@ public class LookupDTO {
     private String cname;
     private int total_cost;
     private String img;
-    private int qty;
-    private int rent_term;
     private String rent_date;
+    private String return_date;
     private int ins;
     private int wifi;
     private int nav;
@@ -45,28 +44,20 @@ public class LookupDTO {
         this.img = img;
     }
 
-    public int getQty() {
-        return qty;
-    }
-
-    public void setQty(int qty) {
-        this.qty = qty;
-    }
-
-    public int getRent_term() {
-        return rent_term;
-    }
-
-    public void setRent_term(int rent_term) {
-        this.rent_term = rent_term;
-    }
-
     public String getRent_date() {
         return rent_date;
     }
 
     public void setRent_date(String rent_date) {
         this.rent_date = rent_date;
+    }
+
+    public String getReturn_date() {
+        return return_date;
+    }
+
+    public void setReturn_date(String return_date) {
+        this.return_date = return_date;
     }
 
     public int getIns() {

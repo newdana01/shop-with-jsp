@@ -4,9 +4,8 @@ public class ReservationDTO {
     private int rno;
     private int cno;
     private String id;
-    private int qty;
-    private int rent_term; //대여 기간
     private String rent_date; //대여 날짜
+    private String return_date;
     private int ins;
     private int wifi;
     private int nav;
@@ -36,28 +35,20 @@ public class ReservationDTO {
         this.id = id;
     }
 
-    public int getQty() {
-        return qty;
-    }
-
-    public void setQty(int qty) {
-        this.qty = qty;
-    }
-
-    public int getRent_term() {
-        return rent_term;
-    }
-
-    public void setRent_term(int rent_term) {
-        this.rent_term = rent_term;
-    }
-
     public String getRent_date() {
         return rent_date;
     }
 
     public void setRent_date(String rent_date) {
         this.rent_date = rent_date;
+    }
+
+    public String getReturn_date() {
+        return return_date;
+    }
+
+    public void setReturn_date(String return_date) {
+        this.return_date = return_date;
     }
 
     public int getIns() {

@@ -34,11 +34,10 @@
     </tr>
     <tr height="40">
         <td width="150" align="center">차량</td>
-        <td width="150" align="center">차량명</td>
+        <td width="120" align="center">차량명</td>
         <td width="150" align="center">대여일</td>
-        <td width="70" align="center">대여기간</td>
+        <td width="150" align="center">반납일</td>
         <td width="100" align="center">대여금액</td>
-        <td width="50" align="center">수량</td>
         <td width="60" align="center">보험</td>
         <td width="60" align="center">WIFI</td>
         <td width="60" align="center">네비게이션</td>
@@ -46,8 +45,7 @@
         <td width="90" align="center">취소</td>
     </tr>
     <%
-        for(int i=0; i < cDTO.size(); i++){ //확장 for 문 바꾸는것 고려***
-            LookupDTO bean = cDTO.get(i);
+        for(LookupDTO bean : cDTO){
     %>
     <tr height="70">
         <td width="150" align="center">
@@ -55,9 +53,8 @@
         </td>
         <td width="150" align="center"><%=bean.getCname()%></td>
         <td width="150" align="center"><%=bean.getRent_date()%></td>
-        <td width="60" align="center"><%=bean.getRent_term()%></td>
+        <td width="60" align="center"><%=bean.getReturn_date()%></td>
         <td width="100" align="center"><%=bean.getTotal_cost()%></td>
-        <td width="60" align="center"><%=bean.getQty()%></td>
         <td width="60" align="center">
             <% if(bean.getIns()==1) {%>
             적용

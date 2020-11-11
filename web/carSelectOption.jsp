@@ -12,7 +12,6 @@
 <body>
 <%
     int cno = Integer.parseInt(request.getParameter("cno"));
-    int qty = Integer.parseInt(request.getParameter("qty"));//수량
     String img = request.getParameter("img"); //이미지 파일명
 %>
 <form action="carMain.jsp?center=carReservationResult.jsp" method="post">
@@ -26,23 +25,17 @@
             <td rowspan="7" width="500" align="center">
                 <img src="img/<%=img%>" alt="차 이미지" width="450">
             </td>
-            <td width="250" align="center">대여기간</td>
-            <td width="250" align="center">
-                <select name="rent_term">
-                    <option value="1">1일</option>
-                    <option value="2">2일</option>
-                    <option value="3">3일</option>
-                    <option value="4">4일</option>
-                    <option value="5">5일</option>
-                    <option value="6">6일</option>
-                    <option value="7">7일</option>
-                </select>
-            </td>
         </tr>
         <tr>
             <td width="250" align="center">대여 날짜</td>
             <td width="250" align="center">
                 <input type="date" name="rent_date">
+            </td>
+        </tr>
+        <tr>
+            <td width="250" align="center">반납 날짜</td>
+            <td width="250" align="center">
+                <input type="date" name="return_date">
             </td>
         </tr>
         <tr>
@@ -82,9 +75,8 @@
             </td>
         </tr>
         <tr>
-            <td align="center" colspan="2">
+            <td align="center" colspan="3">
                 <input type="hidden" name="cno" value="<%=cno%>">
-                <input type="hidden" name="qty" value="<%=qty%>">
                 <input type="submit" value="차량 예약하기">
             </td>
         </tr>

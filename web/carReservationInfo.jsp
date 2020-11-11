@@ -38,16 +38,6 @@
             <td width="250" align="center"><%=rentCarDTO.getCname()%></td>
         </tr>
         <tr>
-            <td width="250" align="center">대여 수량</td>
-            <td width="250" align="center">
-                <select name="qty">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
             <td width="250" align="center">차량 분류</td>
             <td width="250" align="center"><%=temp%></td>
         </tr>

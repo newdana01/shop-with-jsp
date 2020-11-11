@@ -27,8 +27,7 @@
     </tr>
     <tr height="240">
         <%
-            for(int i=0; i<rentCarDTOS.size(); i++){
-                RentCarDTO rentCarDTO = rentCarDTOS.get(i);
+            for(RentCarDTO rentCarDTO : rentCarDTOS){
         %>
         <td align="center">
             <a href="carMain.jsp?center=carReservationInfo.jsp?cno=<%=rentCarDTO.getCno()%>"><img src="img/<%=rentCarDTO.getImg()%>" alt="" width="300" height="220"></a><br>
